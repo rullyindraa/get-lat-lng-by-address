@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title Get Latitude Longitude by Address
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+    script(type='text/javascript').
+      function validasi() {
+      var address = document.getElementById("address").value;
+      if (address != "") {
+      return true;
+      } else {
+      alert('Address must not be empty!');
+      }
+      }
+    style.
+      body {
+      margin:100px;
+      }
+  body
+    .container(style='margin-left: 80px; margin-right: 80px;')
+      .card(style='width: 800px')
+        .card-header.text-white.bg-dark
+          | Address Locator
+        .card-body
+          form(action='/' method='POST' onsubmit='validasi()')
+            .form-group
+              label(for='enter_address') Enter Address
+              input#address.form-control(type='text', name='address', style='width: 750px')
+              input.btn.btn-dark(type='submit', value='Submit', style='margin-top: 30px')
+            p #{hasil}
+            textarea.form-control(rows='3', style='width: 750px')=locationInfo
